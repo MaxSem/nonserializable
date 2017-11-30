@@ -21,7 +21,23 @@ trait Nonserializable {
 	}
 
 	/**
-	 * Block attempts to make classes using this trait JsonSerializable.
+	 * Block attempts to make classes using this trait implement Serializable.
+	 * Throws just in case.
+	 */
+	private function serialize() {
+		throw new NonserializableException( __CLASS__ );
+	}
+
+	/**
+	 * Block attempts to make classes using this trait implement Serializable.
+	 * Throws just in case.
+	 */
+	private function unserialize() {
+		throw new NonserializableException( __CLASS__ );
+	}
+
+	/**
+	 * Block attempts to make classes using this trait implement JsonSerializable.
 	 * Throws just in case.
 	 */
 	private function jsonSerialize() {
